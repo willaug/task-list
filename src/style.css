@@ -1,0 +1,416 @@
+/* 02/02/2021 */
+
+:root{
+    --c1: #2E2E2E;
+    --c2: #1C1C1C;
+    --c3: #FE4E4E;
+    --c4: #E9E8E9;
+    --c5: #F2F2F2;
+    --c6: #f39b9b;
+    --c7 :#707070;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    border: none;
+    outline: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body{
+    background-color: var(--c2);
+}
+
+/* presets */
+
+.pr{
+    position: relative;
+}
+
+.pa{
+    position: absolute;
+}
+
+.middle-x{
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.middle-y{
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.center{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.l{
+    text-align: left;
+}
+
+.r{
+    text-align: right;
+}
+
+.c{
+    text-align: center;
+}
+
+.j{
+    text-align: justify;
+}
+
+/* containers */
+
+.mainContainer{
+    width: 80%;
+    max-width: 700px;
+}
+
+h1{
+    color: var(--c5);
+    font-size: 30px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-top: 37px
+}
+
+h2{
+    color: var(--c5);
+    font-size: 19px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 22px;
+}
+
+p{
+    margin: 20px 0px 40px 0px;
+    font-size: 15px;
+    color: var(--c4);
+}
+
+/* checkbox */
+.task{
+    width: 100%;
+    background-color: var(--c1);
+    height: 37px;
+    border-radius: 37px;
+    margin-bottom: 14px;
+    line-height: 37px;
+    user-select: none;
+    cursor: pointer;
+    display: flex;
+
+}
+
+.task input{
+    display: none;
+}
+
+.description{
+    overflow: hidden;
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+    display: block;
+    color: var(--c5);
+    width: calc(100% - 80px);
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 0.3px;
+    font-family: 'Open Sans', sans-serif;
+    transition: all .3s ease;
+}
+
+.task input:checked + .checkmark + .description{
+    color: var(--c7);
+    text-decoration: line-through;
+}
+
+.checkmark{
+    position: relative;
+    margin: 0 13px 0px 19px;
+    height: 18px;
+    display: block;
+    width: 18px;
+    user-select: none;
+    border: 1px solid var(--c3);
+    border-radius: 6px;
+    transition: all .3s ease;
+}
+
+.task input:checked + .checkmark{
+    background-color: var(--c3);
+}
+
+.checkmark:after{
+    content: "\f00c";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10px;
+    color: transparent;
+    font-family: fontAwesome;
+    visibility: hidden;
+    transition: all .3s ease;
+}
+
+.task input:checked + .checkmark:after {
+    visibility: visible;
+    transition: all .3s ease;
+    color: #fff;
+}
+
+.task .close{
+    position: absolute;
+    right: 8px;
+    background-color: var(--c2);
+    width: 17px;
+    border-radius: 17px;
+    height: 17px;
+    line-height: 17px;
+    font-size: 13px;
+    cursor: pointer;
+    z-index: 40;
+    color: var(--c5);
+    text-align: center;
+    transition: all .3s ease;
+}
+
+.task .close:hover{
+    color: var(--c6);
+}
+
+.callModal{
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    background-color: var(--c3);
+    color: #FFF;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 16px;
+    height: 37px;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 37px;
+    user-select: none;
+    margin-bottom: 30px;
+    transition: all .3s ease;
+}
+
+/* modal */
+.modal-wrapper{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-container{
+    width: 80%;
+    padding: 20px;
+    background-color: var(--c1);
+    border-radius: 20px;
+    max-width: 700px;
+}
+
+
+h3{
+    color: var(--c5);
+    font-size: 19px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    margin-bottom: 30px;
+}
+
+.modal-container input{
+    width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid var(--c2);
+    font-size: 16px;
+    color: #F2F2F2;
+    height: 28px;
+    transition: all .2s ease;
+}
+
+.modal-container input:focus{
+    border-color: var(--c7);
+}
+
+.buttons-modal{
+    position: relative;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.modal-1{
+    float: right;
+    position: relative;
+    padding: 6px 20px;
+    border-radius: 20px;
+    background-color: var(--c3);
+    color: #ffffff;
+    font-size: 15px;
+    user-select: none;
+    font-weight: 400;
+    letter-spacing: .5px;
+    cursor: pointer;
+}
+
+.modal-close{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: var(--c4);
+    width: 12px;
+    height: 12px;
+    text-align: center;
+    font-size: 12px;
+    background-color: transparent;
+    line-height: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.modal-close:after{
+    content: '\f00d';
+    font-family: fontAwesome;
+}
+
+small{
+    color: var(--c5);
+    font-size: 12px;
+    margin-top: 6px;
+    letter-spacing: 0.3px;
+    font-weight: 400;
+}
+
+a{
+    color: var(--c4);
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    margin: 17px 0px 10px 0px;
+}
+
+@media (min-width: 750px){
+    a{
+        font-size: 15px;
+    }
+
+    h1{
+        margin-top: 60px;
+        font-size: 65px;
+        letter-spacing: 2px;
+    }
+    
+    h2{
+        font-size: 37px;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 22px;
+    }
+    
+    p{
+        margin: 40px 0px 60px 0px;
+        font-size: 22px;
+    }
+    
+    /* checkbox */
+    .task{
+        height: 50px;
+        margin-bottom: 20px;
+        line-height: 50px;
+    }
+    
+    .description{
+        width: calc(100% - 110px);
+        font-size: 20px;
+        letter-spacing: 0.5px;
+    }
+    
+    .checkmark{
+        margin: 0 20px 0px 25px;
+        height: 22px;
+        width: 22px;
+        border-radius: 8px;
+        border-width: 2px;
+    }
+    
+    .checkmark:after{
+        font-size: 12px;
+    }
+    
+    .task .close{
+        right: 10px;
+        width: 19px;
+        height: 19px;
+        line-height: 19px;
+        font-size: 15px;
+    }
+    
+    
+    .callModal{
+        font-size: 20px;
+        height: 50px;
+    }
+
+    /* modal */
+    .modal-container{
+        padding: 30px;
+        border-radius: 30px;
+    }
+
+
+    h3{
+        font-size: 24px;
+        letter-spacing: .8px;
+        margin-bottom: 40px;
+    }
+
+    .modal-container input{
+        font-size: 18px;
+        height: 36px;
+        letter-spacing: .5px;
+    }
+
+    .buttons-modal{
+        margin-top: 40px;
+    }
+
+    .modal-1{
+        padding: 7px 27px;
+        border-radius: 40px;
+        font-size: 18px;
+        letter-spacing: 1px;
+    }
+
+    .modal-close{
+        right: 30px;
+        top: 30px;
+        width: 16px;
+        height: 16px;
+        font-size: 16px;
+        line-height: 16px;
+    }
+
+    small{
+        font-size: 16px;
+        margin-top: 15px;
+    }
+}

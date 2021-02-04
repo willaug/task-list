@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
+import './style.css'
+import VWave from 'v-wave'
+
+Vue.use(VWave)
 
 Vue.config.productionTip = false
 
